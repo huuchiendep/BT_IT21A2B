@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("header") -%>  
+
+    
+<div class="container">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>
+                            <%= title %>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width:5%">STT</th>
+                        <th style="width:15%">Họ và tên</th>
+                        <th style="width:15%"  >Hình ảnh</th>
+                        <th>Giới tính</th>
+                        <th style="width:15%">Ngày sinh</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach((item, index)=>{ %>
+                        <tr>
+                            <td class="text-center">
+                                <strong>
+                                    <%= index+1 %>
+                                </strong>
+                            </td>
+                            <td>
+                                <%= item.LastName%>
+                                <%=item.FirstName %>
+                                    
+                            </td>
+                            <td> 
+                                <a href="<%= item.slug %> "><img src="<%= item.img %> " alt="" style="height: 100px; width: 150px;"></a>
+                            </td>
+                            <td class="text-center">
+                                
+                                <% 
+                                    if(item.gender == 1){
+                                        gender = "Nam"
+                                        slug = "nam"
+                                    }else{
+                                        gender = "Nữ"
+                                        slug = "nu"
+                                    }
+                                %> 
+                            <a href="/gender?gender=<%=slug  %>"><%=gender %> </a>
+                            </td>
+                            <td class="text-center">
+
+                            <%= item.Date  %> 
+                            </td>
+                            <td>
+                                <%= item.From %>
+                            </td>
+                            <td>
+                                <%= item.Phone %>
+                            </td>
+                          
+                        </tr>
+
+
+                        <% }) %>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

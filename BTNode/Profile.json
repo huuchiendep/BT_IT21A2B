@@ -1,0 +1,39 @@
+[
+    {"Id":"1",
+    "FirstName":"Tien",
+    "LastName":"Vo Duc",
+    "slug":"Vo-Duc-Tien",
+    "gender":"1",
+    "Date":"02-02-2003",
+    "From":"Quang Ngai",
+    "Job":"Student",
+    "MaritalStatus":"Độc Thân",
+    "Phone": "0374045823",
+    "img":"images/Gojo.jpg"
+},
+
+    {"Id":"2",
+    "FirstName":"Tien",
+    "LastName":"Vo Tan",
+    "slug":"Vo-Tan-Tien",
+    "gender":"1",
+    "Date":"02-03-2003",
+    "From":"Quang Ngai",
+    "Job":"Student",
+    "MaritalStatus":"Độc Thân",
+    "Phone": "0374045823",
+    "img":"images/Gojo.jpg"
+},
+
+    {"Id":"3",
+    "FirstName":"Tien",
+    "LastName":"Hoa Duc ",
+    "slug":"Hoa-Duc-Tien",
+    "gender":"0",
+    "Date":"02-04-2003",
+    "From":"Quang Ngai",
+    "Job":"Student",
+    "MaritalStatus":"Độc Thân",
+    "Phone": "0374045823",
+    "img":"images/Gojo.jpg"
+}]
