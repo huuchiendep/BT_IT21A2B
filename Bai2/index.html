@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header">
+                <h1> Creating a server with Node.js</h1>
+            </div>
+            <div class="card-body" id="select">
+
+            </div>
+            <div class="card-footer text-muted">
+                <h5 id="plate_no"></h5>
+            </div>
+        </div>
+    </div>
+    <script>
+        getData();
+
+        function getData() {
+            fetch('/data', {
+                method: 'GET',
+                headers: {
+                    Authorization: 'Bearer abcdxyz',
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then((res) => {
+                    return res.json();
+                })
+                .then((data) => {
+
+                    showSelect(data.result)
+                });
+        }
+        function showSelect(vehicles) {
+            let content = ` <select onchange="selectVehicle()" id="selectpicker" class="selectpicker show-tick"  data-live-search="true" data-width="25%"  data-style="btn-primary">
+                        <option>Chọn tỉnh thành</option>`;
+            vehicles.forEach(item => {
+                content += `<option value="${item.plate_no}">${item.city}</option>`;
+            })
+            content += `</select>`;
+            document.getElementById('select').innerHTML = content;
+            $('.selectpicker').selectpicker();
+
+        }
+        function selectVehicle() {
+            let plate_no = $(".selectpicker").val();
+            $("#plate_no").text(`Biển số xe là: ${plate_no}`)
+        }
+
+    </script>
+</body>
+
+</html>
